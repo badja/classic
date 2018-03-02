@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>QuickBASIC</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../pcjs/pcx86/components.css">
+		<script type="text/javascript" src="../pcjs/pcx86/pcx86-uncompiled.js"></script>
+	</head>
+	<body style="font-family: Helvetica, Arial, sans-serif;">
+		<div id="qb"></div>
+		<script type="text/javascript">
+			if (location.search)
+				embedPCx86('qb', 'machine-debug.xml', '../pcjs/pcx86/components.xsl', '{autoType: "\\r\\rRUNBASIC ' + location.search.substr(1) + '\\r"}');
+			else
+				embedPCx86('qb', 'machine-debug.xml', '../pcjs/pcx86/components.xsl');
+		</script>
+	</body>
+</html>

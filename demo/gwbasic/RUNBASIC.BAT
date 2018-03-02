@@ -1,5 +1,0 @@
-@ECHO OFF
-CLS
-ECHO About to run "%1"
-PAUSE
-GWBASIC %1
