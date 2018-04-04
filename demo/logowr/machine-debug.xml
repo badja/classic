@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Based on /devices/pcx86/machine/compaq/deskpro386/vga/2048kb/debugger/machine.xml -->
+<machine id="deskpro386" type="pcx86" border="1" pos="center" background="default">
+	<name pos="center">COMPAQ DeskPro 386, IBM VGA</name>
+	<computer id="deskpro386-vga-2048k" name="COMPAQ DeskPro 386" buswidth="32"/>
+	<ram id="ramLow" addr="0x00000" test="false" size="0xa0000" comment="ROM BIOS memory test has been disabled"/>
+	<rom id="romBIOS" addr="0xf8000" size="0x8000" alias="[0xf0000,0xffff0000,0xffff8000]" file="../pcjs/rom/deskpro386-1988-01-28.json"/>
+	<video id="videoVGA" model="vga" screenWidth="1280" screenHeight="960" scale="true" smoothing="false" pos="center" padding="8px">
+		<menu>
+			<title>IBM VGA Color Display</title>
+			<control type="container" pos="right">
+				<control type="led" label="Caps" binding="caps-lock" padLeft="8px"/>
+				<control type="led" label="Num" binding="num-lock" padLeft="8px"/>
+				<control type="led" label="Scroll" binding="scroll-lock" padLeft="8px"/>
+				<control type="button" binding="fullScreen" padLeft="8px;line-height:1em">Full Screen</control>
+			</control>
+		</menu>
+		<rom id="romVGA" addr="0xc0000" size="0x6000" file="../pcjs/video/ibm-vga.json" notify="videoVGA[0x378d,0x3f8d]"/>
+	</video>
+	<fdc id="fdcNEC" autoMount='{A:{name:"Logo Writer Pages"}}' pos="left" padLeft="8px" padBottom="8px">
+		<control type="list" binding="listDrives"/>
+		<control type="list" binding="listDisks">
+			<disk path="LOGOWR-PAGES.json">Logo Writer Pages</disk>
+			<disk path="EMPTY-1200K.json">Empty Diskette (1.2M)</disk>
+			<disk path="MSDOS330-DISK1.json">MS-DOS 3.30 (Disk 1)</disk>
+			<disk path="MSDOS330-DISK2.json">MS-DOS 3.30 (Disk 2)</disk>
+		</control>
+		<control type="button" binding="loadDisk">Load</control>
+		<control type="button" binding="saveDisk" padRight="8px">Save</control>
+		<control type="description" binding="descDisk" padRight="8px"/>
+		<control type="file" binding="mountDisk"/>
+	</fdc>
+	<cpu id="cpu386" model="80386" autoStart="true"/>
+	<keyboard ref="../pcjs/keyboard/us84-softkeys.xml"/>
+	<debugger id="debugger" messages="fault|int" commands=""/>
+	<panel ref="../pcjs/panel/wide386.xml"/>
+	<chipset id="chipset" model="deskpro386" floppies="[1200,1200]" monitor="vga"/>
+</machine>
