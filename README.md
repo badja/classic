@@ -101,3 +101,7 @@
 - [WITCH](https://badja.github.io/classic/demo/qb/index.html?WITCH)
 - [XMAS](https://badja.github.io/classic/demo/qb/index.html?XMAS)
 - [ZOMBIES](https://badja.github.io/classic/demo/qb/index.html?ZOMBIES)
+
+## LogoWriter
+
+- [CONTENTS](https://badja.github.io/classic/demo/logowr/index.html)
